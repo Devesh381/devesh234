@@ -1,2 +1,836 @@
-<p>hello world</p>
-<p><hello hello worldp>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Devesh Gupta | Portfolio</title>
+
+    <style>
+        /* =========================
+           GENERAL STYLING
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7fb;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+
+        section {
+            padding: 70px 0;
+        }
+
+        /* =========================
+           NAVIGATION BAR
+        ========================== */
+
+        header {
+            background-color: #0f172a;
+            color: white;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            color: #cbd5e1;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 20px auto;
+            color: #e2e8f0;
+            font-size: 17px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            margin-left: 10px;
+        }
+
+        .secondary-button:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        /* =========================
+           SECTION HEADINGS
+        ========================== */
+
+        .section-title {
+            text-align: center;
+            color: #0f172a;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #38bdf8;
+            margin: 10px auto;
+        }
+
+        /* =========================
+           ABOUT SECTION
+        ========================== */
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #475569;
+        }
+
+        .about-details {
+            flex: 1;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-details p {
+            margin-bottom: 12px;
+        }
+
+        .about-details strong {
+            color: #0f172a;
+        }
+
+        /* =========================
+           SKILLS SECTION
+        ========================== */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: #1e3a8a;
+        }
+
+        .skill-card p {
+            color: #64748b;
+        }
+
+        /* =========================
+           PROJECTS SECTION
+        ========================== */
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #38bdf8;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #1e3a8a;
+        }
+
+        .project-card p {
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .tech-stack {
+            font-size: 14px;
+            font-weight: bold;
+            color: #0284c7;
+        }
+
+        /* =========================
+           EXPERIENCE SECTION
+        ========================== */
+
+        .experience-card {
+            background-color: white;
+            padding: 30px;
+            border-left: 5px solid #38bdf8;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .experience-card p {
+            color: #475569;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           EDUCATION SECTION
+        ========================== */
+
+        .education-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .education-card p {
+            color: #475569;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================== */
+
+        .contact {
+            background-color: #e2e8f0;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-content p {
+            margin: 12px 0;
+            color: #475569;
+        }
+
+        .contact-content a {
+            color: #0369a1;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 768px) {
+
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .secondary-button {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Devesh Gupta</div>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <h1>Hello, I'm <span>Devesh Gupta</span></h1>
+
+                <h2>Computer Science Student | Developer | Entrepreneurial Mindset</h2>
+
+                <p>
+                    I am a Computer Science student at RV College of Engineering,
+                    Bengaluru, interested in software development, problem-solving,
+                    technology, leadership, and building practical solutions.
+                </p>
+
+                <a href="#projects" class="button">View My Projects</a>
+
+                <a href="#contact" class="button secondary-button">
+                    Contact Me
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
+
+    <section id="about">
+        <div class="container">
+
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-content">
+
+                <div class="about-text">
+
+                    <h3>Who Am I?</h3>
+
+                    <p>
+                        I am Devesh Gupta, a Computer Science student at
+                        RV College of Engineering, Bengaluru.
+                    </p>
+
+                    <p>
+                        I am interested in programming, software development,
+                        database management, technology-driven solutions,
+                        and developing projects that solve real-world problems.
+                    </p>
+
+                    <p>
+                        I enjoy working in teams, learning new technologies,
+                        communicating ideas, and taking responsibility in
+                        leadership and organizational activities.
+                    </p>
+
+                </div>
+
+                <div class="about-details">
+
+                    <p>
+                        <strong>Name:</strong> Devesh Gupta
+                    </p>
+
+                    <p>
+                        <strong>College:</strong> RV College of Engineering
+                    </p>
+
+                    <p>
+                        <strong>Branch:</strong> Computer Science
+                    </p>
+
+                    <p>
+                        <strong>Academic Year:</strong> 2024–2028
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong> Bengaluru, India
+                    </p>
+
+                    <p>
+                        <strong>Interests:</strong>
+                        Programming, Technology, Business, Leadership
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         SKILLS SECTION
+    ========================== -->
+
+    <section id="skills">
+        <div class="container">
+
+            <h2 class="section-title">My Skills</h2>
+
+            <div class="skills-container">
+
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <p>C</p>
+                    <p>C++</p>
+                    <p>Problem Solving</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Database & Data</h3>
+                    <p>SQL</p>
+                    <p>DBMS</p>
+                    <p>Advanced Excel</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>HTML</p>
+                    <p>CSS</p>
+                    <p>JavaScript Basics</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Professional Skills</h3>
+                    <p>Communication</p>
+                    <p>Leadership</p>
+                    <p>Teamwork</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Business Skills</h3>
+                    <p>Marketing</p>
+                    <p>Convincing Skills</p>
+                    <p>Client Communication</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Core Concepts</h3>
+                    <p>Data Structures</p>
+                    <p>Operating Systems</p>
+                    <p>Computer Science Fundamentals</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         PROJECTS SECTION
+    ========================== -->
+
+    <section id="projects">
+        <div class="container">
+
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="projects-container">
+
+                <div class="project-card">
+
+                    <h3>1. Smart Traffic Light Management System</h3>
+
+                    <p>
+                        A traffic management simulation that uses vehicle density
+                        from four directions to determine green signal duration.
+                        The system includes adaptive traffic control,
+                        congestion monitoring, and emergency vehicle priority.
+                    </p>
+
+                    <p class="tech-stack">
+                        Technologies: C, HTML, CSS, JavaScript
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>2. The Third Eye</h3>
+
+                    <p>
+                        A technology-based assistive project designed to help
+                        visually impaired individuals. The system integrates
+                        sensors and cameras with a smart stick and mobile
+                        application to detect obstacles and provide audio alerts.
+                    </p>
+
+                    <p class="tech-stack">
+                        Technologies: Sensors, Cameras, Mobile Application
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>3. College Chatbot</h3>
+
+                    <p>
+                        A proposed college-specific chatbot that provides
+                        information from university-approved resources such as
+                        syllabus documents, academic schedules, examination
+                        dates, and faculty cabin locations.
+                    </p>
+
+                    <p class="tech-stack">
+                        Technologies: AI Concepts, Databases, Software Development
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>4. Smart Medicine Vending Machine</h3>
+
+                    <p>
+                        An IoT-based project concept involving an ESP32
+                        controller and a smart vending system for dispensing
+                        medicines through an automated interface.
+                    </p>
+
+                    <p class="tech-stack">
+                        Technologies: ESP32, IoT, Embedded Systems
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>5. System Call Analysis and Monitoring</h3>
+
+                    <p>
+                        An operating systems project focused on studying
+                        system calls and kernel behavior using tracing and
+                        monitoring techniques.
+                    </p>
+
+                    <p class="tech-stack">
+                        Technologies: C, POSIX, strace, GCC
+                    </p>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <h3>6. Water Demand Forecasting</h3>
+
+                    <p>
+                        A design thinking project focused on understanding
+                        water consumption and forecasting demand for
+                        apartments, paying guest accommodations, and other
+                        residential environments.
+                    </p>
+
+                    <p class="tech-stack">
+                        Technologies: Research, Data Collection, Forecasting Concepts
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE SECTION
+    ========================== -->
+
+    <section id="experience">
+        <div class="container">
+
+            <h2 class="section-title">Experience & Leadership</h2>
+
+            <div class="experience-card">
+
+                <h3>Senior Associate – E-Cell, RVCE</h3>
+
+                <p>
+                    Involved in entrepreneurial and organizational activities
+                    at the Entrepreneurship Cell of RV College of Engineering.
+                </p>
+
+                <p>
+                    Interested in business development, marketing, communication,
+                    networking, and working with teams.
+                </p>
+
+                <br>
+
+                <h3>Intern – Orbus International</h3>
+
+                <p>
+                    Previous internship experience at Orbus International.
+                    Additional responsibilities and achievements can be added
+                    here as your professional experience develops.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         EDUCATION SECTION
+    ========================== -->
+
+    <section id="education">
+        <div class="container">
+
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-card">
+
+                <h3>RV College of Engineering, Bengaluru</h3>
+
+                <p>
+                    <strong>Degree:</strong> Bachelor of Engineering / Technology
+                </p>
+
+                <p>
+                    <strong>Branch:</strong> Computer Science
+                </p>
+
+                <p>
+                    <strong>Academic Period:</strong> 2024–2028
+                </p>
+
+                <p>
+                    <strong>Student ID:</strong> 1RV24CD020
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         CONTACT SECTION
+    ========================== -->
+
+    <section class="contact" id="contact">
+        <div class="container">
+
+            <h2 class="section-title">Contact Me</h2>
+
+            <div class="contact-content">
+
+                <p>
+                    I am open to learning opportunities, collaborations,
+                    internships, and interesting projects.
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:deveshgupta1812@gmail.com">
+                        deveshgupta1812@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <a href="tel:8287018435">
+                        +91 8287018435
+                    </a>
+                </p>
+
+                <p>
+                    <strong>LinkedIn:</strong>
+                    <a
+                        href="https://www.linkedin.com/in/devesh-gupta-9a39052b0/"
+                        target="_blank"
+                    >
+                        View My LinkedIn
+                    </a>
+                </p>
+
+                <!-- Replace the URL below with your GitHub profile -->
+                <p>
+                    <strong>GitHub:</strong>
+                    <a
+                        href="https://github.com/YOUR-GITHUB-USERNAME"
+                        target="_blank"
+                    >
+                        View My GitHub
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Devesh Gupta. All Rights Reserved.
+        </p>
+
+        <p>
+            Built with HTML and CSS.
+        </p>
+
+    </footer>
+
+</body>
+</html>
